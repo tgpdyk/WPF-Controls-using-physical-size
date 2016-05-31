@@ -1,0 +1,60 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DisplayDeviceInfo", "..\lib\DisplayDeviceInfo\DisplayDeviceInfo.csproj", "{C649B308-0EB9-477D-B3E9-444D90444934}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "EdidInfo", "..\lib\EdidInfo\EdidInfo.vcxproj", "{D6504DB4-AE34-4ED8-A628-B049E17BD366}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UIElementInPhysicalSizeTest", "UIElementPhysicalSize\UIElementInPhysicalSizeTest.csproj", "{B24A5920-B56A-4962-B4DA-7A4E4F14F829}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C649B308-0EB9-477D-B3E9-444D90444934}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C649B308-0EB9-477D-B3E9-444D90444934}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C649B308-0EB9-477D-B3E9-444D90444934}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{C649B308-0EB9-477D-B3E9-444D90444934}.Debug|x64.Build.0 = Debug|Any CPU
+		{C649B308-0EB9-477D-B3E9-444D90444934}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{C649B308-0EB9-477D-B3E9-444D90444934}.Debug|x86.Build.0 = Debug|Any CPU
+		{C649B308-0EB9-477D-B3E9-444D90444934}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C649B308-0EB9-477D-B3E9-444D90444934}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C649B308-0EB9-477D-B3E9-444D90444934}.Release|x64.ActiveCfg = Release|Any CPU
+		{C649B308-0EB9-477D-B3E9-444D90444934}.Release|x64.Build.0 = Release|Any CPU
+		{C649B308-0EB9-477D-B3E9-444D90444934}.Release|x86.ActiveCfg = Release|Any CPU
+		{C649B308-0EB9-477D-B3E9-444D90444934}.Release|x86.Build.0 = Release|Any CPU
+		{D6504DB4-AE34-4ED8-A628-B049E17BD366}.Debug|Any CPU.ActiveCfg = Debug|Win32
+		{D6504DB4-AE34-4ED8-A628-B049E17BD366}.Debug|x64.ActiveCfg = Debug|x64
+		{D6504DB4-AE34-4ED8-A628-B049E17BD366}.Debug|x64.Build.0 = Debug|x64
+		{D6504DB4-AE34-4ED8-A628-B049E17BD366}.Debug|x86.ActiveCfg = Debug|Win32
+		{D6504DB4-AE34-4ED8-A628-B049E17BD366}.Debug|x86.Build.0 = Debug|Win32
+		{D6504DB4-AE34-4ED8-A628-B049E17BD366}.Release|Any CPU.ActiveCfg = Release|Win32
+		{D6504DB4-AE34-4ED8-A628-B049E17BD366}.Release|x64.ActiveCfg = Release|x64
+		{D6504DB4-AE34-4ED8-A628-B049E17BD366}.Release|x64.Build.0 = Release|x64
+		{D6504DB4-AE34-4ED8-A628-B049E17BD366}.Release|x86.ActiveCfg = Release|Win32
+		{D6504DB4-AE34-4ED8-A628-B049E17BD366}.Release|x86.Build.0 = Release|Win32
+		{B24A5920-B56A-4962-B4DA-7A4E4F14F829}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B24A5920-B56A-4962-B4DA-7A4E4F14F829}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B24A5920-B56A-4962-B4DA-7A4E4F14F829}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{B24A5920-B56A-4962-B4DA-7A4E4F14F829}.Debug|x64.Build.0 = Debug|Any CPU
+		{B24A5920-B56A-4962-B4DA-7A4E4F14F829}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{B24A5920-B56A-4962-B4DA-7A4E4F14F829}.Debug|x86.Build.0 = Debug|Any CPU
+		{B24A5920-B56A-4962-B4DA-7A4E4F14F829}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B24A5920-B56A-4962-B4DA-7A4E4F14F829}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B24A5920-B56A-4962-B4DA-7A4E4F14F829}.Release|x64.ActiveCfg = Release|Any CPU
+		{B24A5920-B56A-4962-B4DA-7A4E4F14F829}.Release|x64.Build.0 = Release|Any CPU
+		{B24A5920-B56A-4962-B4DA-7A4E4F14F829}.Release|x86.ActiveCfg = Release|Any CPU
+		{B24A5920-B56A-4962-B4DA-7A4E4F14F829}.Release|x86.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
