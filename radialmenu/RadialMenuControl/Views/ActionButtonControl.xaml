@@ -1,0 +1,73 @@
+﻿<sectorUc:SectorUserControl x:Class="RadialMenuControl.Views.ActionButtonControl"
+                            xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                            xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                            xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+                            xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+                            xmlns:sectorUc="clr-namespace:RadialMenuControl.Common"
+                            xmlns:radialMenuControl="clr-namespace:RadialMenuControl"
+                            mc:Ignorable="d" 
+                            d:DesignHeight="300" d:DesignWidth="300"
+                            CenterPoint="{Binding Path=CenterPoint, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type radialMenuControl:SectorPanel}}}"
+                            Angle1="{Binding Path=Angle1, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type radialMenuControl:SectorPanel}}}" 
+                            Angle2="{Binding Path=Angle2, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type radialMenuControl:SectorPanel}}}" 
+                            x:Name="ActionButtonCtrl">     
+
+    <Canvas x:Name="MainCanvas">
+        
+        <Button x:Name="ActionBtn" 
+                Opacity="0.7"
+                HorizontalContentAlignment="Center"
+                VerticalContentAlignment="Top"
+                Canvas.Top="{Binding Path=ContentPoint.Y, ElementName=ActionButtonCtrl}"
+                Canvas.Left="{Binding Path=ContentPoint.X, ElementName=ActionButtonCtrl}">
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                  
+                    <Grid x:Name="theGrid"
+                          HorizontalAlignment="Center"
+                          VerticalAlignment="Center"
+                          Background="Transparent"
+                          Height="70" 
+                          Width="70">
+                        <StackPanel x:Name="thePanel" Orientation="Vertical">
+                            <Image x:Name="actionIcon"
+                                   HorizontalAlignment="Center"
+                                   Height="35"
+                                   Opacity="{TemplateBinding Opacity}">
+                                <!--<Image.Style>
+                                    <Style TargetType="Image">
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding Path=Label, ElementName=ActionButtonCtrl}" Value="Alarms">
+                                                <Setter Property="Source" Value="Images/Alarms.png"/>
+                                            </DataTrigger>
+                                            <DataTrigger Binding="{Binding Path=Label, ElementName=ActionButtonCtrl}" Value="Interlocks">
+                                                <Setter Property="Source" Value="Images/Interlocks.png"/>
+                                            </DataTrigger>
+                                            <DataTrigger Binding="{Binding Path=Label, ElementName=ActionButtonCtrl}" Value="Details">
+                                                <Setter Property="Source" Value="Images/History.png"/>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                        
+                                    </Style>
+                                </Image.Style>-->
+                            </Image>
+                            
+                            <TextBlock x:Name="actionName"
+                                       Text="{Binding Path=Label, ElementName=ActionButtonCtrl}"
+                                       Opacity="{TemplateBinding Opacity}"
+                                       FontWeight="Bold"
+                                       FontSize="9"
+                                       HorizontalAlignment="Center"/>
+                            <TextBlock x:Name="actionName2"
+                                       Text="{Binding Path=Label2, ElementName=ActionButtonCtrl}"
+                                       Opacity="{TemplateBinding Opacity}"
+                                       FontSize="9"
+                                       FontWeight="Bold"
+                                       HorizontalAlignment="Center"/>
+                        </StackPanel>
+                    </Grid>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+    </Canvas>
+</sectorUc:SectorUserControl>

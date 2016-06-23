@@ -1,0 +1,20 @@
+﻿<sectorUc:SectorUserControl x:Class="RadialMenuControl.Views.GaugeModeControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:sectorUc="clr-namespace:RadialMenuControl.Common"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300"
+             xmlns:radialMenuControl="clr-namespace:RadialMenuControl"
+                            Loaded="GaugeModeControl_OnLoaded"
+             xmlns:views="clr-namespace:RadialMenuControl.Views"
+             x:Name="GaugeModeCtrl">
+    
+    <StackPanel Orientation="Vertical"
+                x:Name="Container">
+        <views:ArcButton Mode="{x:Static radialMenuControl:GaugeModeEnum.Auto}" Width="150" AngleOffset="10"/>
+        <views:ArcButton Mode="{x:Static radialMenuControl:GaugeModeEnum.Cascade}" Width="150" AngleOffset="10"/>
+        <views:ArcButton Mode="{x:Static radialMenuControl:GaugeModeEnum.Manual}" Width="150" AngleOffset="10"/>
+    </StackPanel>
+</sectorUc:SectorUserControl>

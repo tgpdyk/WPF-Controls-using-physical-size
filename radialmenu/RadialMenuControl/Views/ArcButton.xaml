@@ -1,0 +1,71 @@
+﻿<sectorUc:SectorUserControl x:Class="RadialMenuControl.Views.ArcButton"
+                            xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                            xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                            xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+                            xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+                            xmlns:sectorUc="clr-namespace:RadialMenuControl.Common"
+                            mc:Ignorable="d"
+                            x:Name="ArcBtnCtrl">
+    <Canvas>
+        <Button x:Name="ArcBtnItem"
+                Click="ArcBtnItem_Click">
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Grid>
+                        <Canvas x:Name="ArcBtnCanvas" >
+                            <Path x:Name="PathBtn"
+                                  Stroke="Blue" 
+                                  StrokeThickness="0" 
+                                  Fill="Transparent">
+                                <Path.Data>
+                                    <PathGeometry>
+                                        <PathFigure StartPoint="{Binding Path=StartPoint, ElementName=ArcBtnCtrl}"
+                                                    IsClosed="True"
+                                                    IsFilled="True">
+                                            <ArcSegment Point="{Binding Path=Arc1Point, ElementName=ArcBtnCtrl}"
+                                                        Size="{Binding Path=Arc1Size, ElementName=ArcBtnCtrl}"
+                                                        RotationAngle="{Binding Path=Rotation, ElementName=ArcBtnCtrl}"
+                                                        SweepDirection="Clockwise"
+                                                        IsLargeArc="{Binding Path=IsLargeArc, ElementName=ArcBtnCtrl}"
+                                                        IsStroked="True"/>
+                                            <LineSegment Point="{Binding Path=LinePoint, ElementName=ArcBtnCtrl}" IsStroked="True"/>
+                                            <ArcSegment Point="{Binding Path=Arc2Point, ElementName=ArcBtnCtrl}" 
+                                                        Size="{Binding Path=Arc2Size, ElementName=ArcBtnCtrl}"
+                                                        RotationAngle="{Binding Path=Rotation, ElementName=ArcBtnCtrl}"
+                                                        SweepDirection="Counterclockwise"
+                                                        IsLargeArc="{Binding Path=IsLargeArc, ElementName=ArcBtnCtrl}"
+                                                        IsStroked="True"/>
+                                        </PathFigure>
+                                    </PathGeometry>
+                                </Path.Data>
+                            </Path>
+
+                             <!--Refactor: The best way is to make this a content control -->
+                            <TextBlock x:Name="modeName"
+                                       Width="40"
+                                       TextAlignment="Center"
+                                       Text="{Binding Path=Label, ElementName=ArcBtnCtrl}"
+                                       FontSize="11"
+                                       FontWeight="Bold"
+                                       Canvas.Top="{Binding Path=LabelY, ElementName=ArcBtnCtrl}"
+                                       Canvas.Left="{Binding Path=LabelX, ElementName=ArcBtnCtrl}"/>
+                        
+                        </Canvas>
+                    </Grid>
+
+                    <ControlTemplate.Triggers>
+                        <DataTrigger Binding="{Binding IsSelected, ElementName=ArcBtnCtrl}" Value="True">
+                            <Setter TargetName="PathBtn" Property="Fill" Value="#007ACC"/>
+                            <Setter TargetName="PathBtn" Property="Opacity" Value="0.6"/>
+                        </DataTrigger>
+                       <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="PathBtn" Property="Fill" Value="Gray"/>
+                            <Setter TargetName="PathBtn" Property="Opacity" Value="0.6"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+        
+    </Canvas>
+</sectorUc:SectorUserControl >

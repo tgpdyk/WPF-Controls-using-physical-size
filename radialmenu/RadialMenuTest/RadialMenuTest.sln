@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RadialMenuTest", "RadialMenuTest.csproj", "{2484871E-D59B-4F44-8DA3-3AD11E9130F2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "RadialMenu", "RadialMenu", "{21589CEF-3FDE-4A4A-8AFD-F15FE4512F0E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RadialMenuControl", "..\RadialMenuControl\RadialMenuControl.csproj", "{69B66D5F-BB28-423C-89CD-8B283FC81544}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2484871E-D59B-4F44-8DA3-3AD11E9130F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2484871E-D59B-4F44-8DA3-3AD11E9130F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2484871E-D59B-4F44-8DA3-3AD11E9130F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2484871E-D59B-4F44-8DA3-3AD11E9130F2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{69B66D5F-BB28-423C-89CD-8B283FC81544}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{69B66D5F-BB28-423C-89CD-8B283FC81544}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{69B66D5F-BB28-423C-89CD-8B283FC81544}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{69B66D5F-BB28-423C-89CD-8B283FC81544}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{69B66D5F-BB28-423C-89CD-8B283FC81544} = {21589CEF-3FDE-4A4A-8AFD-F15FE4512F0E}
+	EndGlobalSection
+EndGlobal

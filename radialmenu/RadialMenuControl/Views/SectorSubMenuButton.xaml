@@ -1,0 +1,155 @@
+﻿<sectorUc:SectorUserControl x:Class="RadialMenuControl.Views.SectorSubMenuButton"
+                            x:ClassModifier="internal"
+                            xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                            xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                            xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+                            xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                            xmlns:sectorUc="clr-namespace:RadialMenuControl.Common"
+                            xmlns:menu="clr-namespace:RadialMenuControl"
+                            xmlns:views="clr-namespace:RadialMenuControl.Views"
+                            mc:Ignorable="d" 
+                            d:DesignHeight="300" d:DesignWidth="300"
+                            Loaded="SubMenuBtnCtrl_Loaded" 
+                            x:Name="SubMenuBtnCtrl">
+    
+    <sectorUc:SectorUserControl.Style>
+        <Style>
+            <Setter Property="views:SectorSubMenuButton.Thickness" Value="{Binding Path=SubMenuThickness, RelativeSource={RelativeSource AncestorType={x:Type menu:RadialMenu}}}"/>
+        </Style>
+    </sectorUc:SectorUserControl.Style>
+    
+    <sectorUc:SectorUserControl.Resources>
+        <Style x:Key="SubMenuBtnStyle" TargetType="Button">
+            <Style.Resources>
+                <PathGeometry x:Key="ArcPathData">
+                    <PathFigure StartPoint="{Binding Path=Point1, ElementName=SubMenuBtnCtrl}"
+                                IsClosed="True"
+                                IsFilled="True">
+                        <ArcSegment Point="{Binding Path=Arc1Point, ElementName=SubMenuBtnCtrl}"
+                                    Size="{Binding Path=Arc1Size, ElementName=SubMenuBtnCtrl}"
+                                    RotationAngle="{Binding Path=Rotation, ElementName=SubMenuBtnCtrl}"
+                                    SweepDirection="Clockwise"
+                                    IsLargeArc="{Binding Path=IsLargeArc, ElementName=SubMenuBtnCtrl}"
+                                    IsStroked="True"/>
+                        <LineSegment Point="{Binding Path=LinePoint, ElementName=SubMenuBtnCtrl}" IsStroked="True"/>
+                        <ArcSegment Point="{Binding Path=Arc2Point, ElementName=SubMenuBtnCtrl}" 
+                                    Size="{Binding Path=Arc2Size, ElementName=SubMenuBtnCtrl}"
+                                    RotationAngle="{Binding Path=Rotation, ElementName=SubMenuBtnCtrl}"
+                                    SweepDirection="Counterclockwise"
+                                    IsLargeArc="{Binding Path=IsLargeArc, ElementName=SubMenuBtnCtrl}"
+                                    IsStroked="True"/>
+                    </PathFigure>
+                </PathGeometry>
+
+                
+                <PathGeometry x:Key="ArrowUp">
+                    <PathFigure StartPoint="{Binding Path=ArrowLine1Point, ElementName=SubMenuBtnCtrl}"
+                                IsClosed="True"
+                                IsFilled="True">
+                        <LineSegment Point="{Binding Path=ArrowLine2Point, ElementName=SubMenuBtnCtrl}" IsStroked="True"/>
+                        <LineSegment Point="{Binding Path=ArrowLine3Point, ElementName=SubMenuBtnCtrl}" IsStroked="True"/>
+                    </PathFigure>
+                </PathGeometry>
+            </Style.Resources>
+            
+            
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding SubMenuState, ElementName=SubMenuBtnCtrl}" Value="{x:Static menu:SubMenuBtnCtrlState.SubMenuClosedWithItems}">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="Button">
+                                <Canvas>
+                                    <Path x:Name="BtnTrue"
+                                          Stroke="DarkGray" 
+                                          StrokeThickness="0" 
+                                          Fill="#007ACC"
+                                          Data="{StaticResource ArcPathData}"/>
+                                    
+                                    <Path Stroke="Transparent" 
+                                          StrokeThickness="1" 
+                                          Fill="White"
+                                          Data="{StaticResource ResourceKey=ArrowUp}"/>
+                                </Canvas>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter TargetName="BtnTrue"  Property="Fill" Value="Gray" />
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </DataTrigger>
+               <DataTrigger Binding="{Binding SubMenuState, ElementName=SubMenuBtnCtrl}" Value="{x:Static menu:SubMenuBtnCtrlState.SubmenuClosedWithNoItems}">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="Button">
+                                <Canvas>
+                                    <Path x:Name="BtnFalse"
+                                          Stroke="DarkGray" 
+                                          StrokeThickness="0" 
+                                          Fill="#5B9BD5"
+                                          Data="{StaticResource ArcPathData}"/>
+                                  </Canvas>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </DataTrigger>
+                
+                <DataTrigger Binding="{Binding SubMenuState, ElementName=SubMenuBtnCtrl}" Value="{x:Static menu:SubMenuBtnCtrlState.SubmenuOpened}">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="Button">
+                                <Canvas>
+                                    <Path x:Name="BtnOpened"
+                                          Stroke="DarkGray" 
+                                          StrokeThickness="0.5" 
+                                          Fill="White"
+                                          Data="{StaticResource ArcPathData}"/>
+                                    
+                                </Canvas>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </DataTrigger>
+
+            </Style.Triggers>
+        </Style>
+
+    </sectorUc:SectorUserControl.Resources>
+    
+    <Canvas>
+        <Button Style="{StaticResource SubMenuBtnStyle}" x:Name="SubMenuBtn" Click="SubMenuBtn_Click" />
+        <Button x:Name="ArrowDownBtn" Visibility="Hidden" Click="Button_ArrowDown_Click">
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Canvas>
+                        <Path x:Name="arroDown"
+                               Stroke="Transparent" 
+                               StrokeThickness="1" 
+                               Fill="Gray">
+                            <Path.Data>
+                                <PathGeometry >
+                                    <PathFigure StartPoint="{Binding Path=ArrowLine1Point, ElementName=SubMenuBtnCtrl}"
+                                        IsClosed="True"
+                                        IsFilled="True">
+                                        <LineSegment Point="{Binding Path=ArrowLine2Point, ElementName=SubMenuBtnCtrl}" IsStroked="True"/>
+                                        <LineSegment Point="{Binding Path=ArrowLine3Point, ElementName=SubMenuBtnCtrl}" IsStroked="True"/>
+                                    </PathFigure>
+                                </PathGeometry>
+                            </Path.Data>
+                        </Path>
+                    </Canvas>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="arroDown"  Property="Fill" Value="Blue" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+        <views:ActionButtonControl/>
+    </Canvas>
+ </sectorUc:SectorUserControl>
+
+    

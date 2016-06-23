@@ -1,0 +1,35 @@
+﻿<UserControl x:Class="RadialMenuControl.Views.Gauge.GaugeControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:ac="clr-namespace:RadialMenuControl"
+             xmlns:gauge="clr-namespace:RadialMenuControl.Views.Gauge"
+             mc:Ignorable="d" 
+             x:Name="GaugeCtrl"
+             d:DesignHeight="300" d:DesignWidth="300">
+    
+    <StackPanel x:Name="RangesPanel">
+        
+        <gauge:RangeControl x:Name="Output"
+                            Min="0" 
+                            Max="100"
+                            Unit="%"
+                            CurrentRangeValue="47"
+                            TextValuePosition="{x:Static ac:TextValuePosition.Outer}"
+                            TextValueFormat="0"
+                            NeedleBrush="#00B0F0"
+                            Background="#00B0F0"/>
+        
+        <gauge:RangeControl x:Name="ProcessValue"
+                            Min="0" 
+                            Max="25" 
+                            Unit="in."
+                            CurrentRangeValue="19"
+                            TextValuePosition="{x:Static ac:TextValuePosition.Inner}"
+                            Background="Orange"
+                            NeedleBrush="Gray"/>
+           
+    </StackPanel>
+    
+</UserControl>

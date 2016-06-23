@@ -1,0 +1,77 @@
+﻿<Window x:Class="RadialMenuControlTest.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:radial="clr-namespace:RadialMenuControl;assembly=RadialMenuControl"
+        xmlns:radialViews="clr-namespace:RadialMenuControl.Views;assembly=RadialMenuControl"
+        xmlns:radialGauge="clr-namespace:RadialMenuControl.Views.Gauge;assembly=RadialMenuControl"
+        WindowStartupLocation="CenterScreen"
+        mc:Ignorable="d"
+        Title="Launch Menu" Height="169.474" Width="300.263">
+    <!--Height="169.474" Width="300.263"-->
+    <Grid>
+        <Image ></Image>
+        <Button Content="Right click to show"
+                Width="150"
+                Height="50">
+            <Button.ContextMenu>
+                <ContextMenu>
+                    <ContextMenu.Template>
+                        <ControlTemplate>
+                            <radial:RadialMenu Diameter="300"
+                                               Label="Radial"
+                                               SubMenuThickness="200"
+                                               SubMenuContainerThickness="120"
+                                               StartingPoint="245">
+                                <!--Sector1: Mode menu -->
+                                <radial:RadialMenuItem x:Name="Mode"
+                                                       AngleShare="50">
+                                    <!-- Mode Type -->
+                                    <radialViews:GaugeModeControl/>
+                                    <!-- Empty sub menu -->
+                                    <radial:RadialMenuItem/>
+                                </radial:RadialMenuItem>
+
+                                <!--Sector2: Details menu, no submenus-just some desription -->
+                                <radial:RadialMenuItem AngleShare="50">
+                                    <radialViews:ActionButtonControl Label="Details"/>
+                                    <!--SubMenus-->
+                                    <radial:RadialMenuItem>
+                                        <radialViews:ArcImageButton Label="Sub1"/>
+                                        <radialViews:ArcImageButton Label="Sub2"/>
+                                        <radialViews:ArcImageButton Label="Sub3"/>
+                                    </radial:RadialMenuItem>
+                                </radial:RadialMenuItem>
+
+                                <!--Sector3: Intentinally blank -->
+                                <radial:RadialMenuItem AngleShare="40">
+                                    <!-- Empty sub menu -->
+                                    <radial:RadialMenuItem/>
+                                </radial:RadialMenuItem>
+
+                                <!--Sector4: Intentinally blank -->
+                                <radial:RadialMenuItem AngleShare="45">
+                                    <radial:RadialMenuItem/>
+                                </radial:RadialMenuItem>
+
+                                <!--Sector5: Intentinally blank -->
+                                <radial:RadialMenuItem AngleShare="50">
+
+                                    <radial:RadialMenuItem/>
+                                </radial:RadialMenuItem>
+                                <!--Sector6: Gauge control -->
+                                <radial:RadialMenuItem AngleShare="2000">
+                                    <radialGauge:GaugeControl
+                                        IsAnimateNeedleEditBox="True"
+                                        IsSPTrackingEnabled="True"/>
+                                </radial:RadialMenuItem>
+
+                            </radial:RadialMenu>
+                        </ControlTemplate>
+                    </ContextMenu.Template>
+                </ContextMenu>
+            </Button.ContextMenu>
+        </Button>
+    </Grid>
+</Window>
